@@ -1,6 +1,14 @@
 import { DateTime } from "luxon";
-import { BaseModel, BelongsTo, belongsTo, column } from "@ioc:Adonis/Lucid/Orm";
+import {
+  BaseModel,
+  BelongsTo,
+  HasMany,
+  belongsTo,
+  column,
+  hasMany,
+} from "@ioc:Adonis/Lucid/Orm";
 import User from "./User";
+import PlanVersion from "./PlanVersion";
 
 export default class Plan extends BaseModel {
   @column({ isPrimary: true })
@@ -20,4 +28,7 @@ export default class Plan extends BaseModel {
 
   @belongsTo(() => User)
   public user: BelongsTo<typeof User>;
+
+  @hasMany(() => PlanVersion)
+  public planVersions: HasMany<typeof PlanVersion>;
 }
