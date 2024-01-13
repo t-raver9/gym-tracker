@@ -24,4 +24,5 @@ Route.get("/", async () => {
   return { hello: "world" };
 });
 
+Route.post("/login", "AuthController.login");
 Route.post("/register", "AuthController.register");
